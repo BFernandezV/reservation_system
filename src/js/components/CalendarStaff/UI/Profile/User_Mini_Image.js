@@ -12,7 +12,7 @@ const UserMiniImage = (props) => {
   // By defaul return Anonymous image
   return (
     <React.Fragment>
-      <div className="w-[40px] h-[40px] bg-gray-500 rounded-full text-center align-middle leading-[40px] uppercase text-white text-base">
+      <div className="w-[40px] h-[40px] bg-red-500 rounded-full text-center align-middle leading-[40px] uppercase text-white text-base">
         {props.alt ? props.alt[0] : "U"}
       </div>
 
