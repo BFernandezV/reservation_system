@@ -11,15 +11,21 @@ const DUMMY_USERS = {
       id: 1,
       name: "Carla Merino",
       imageURL: "client_pics/carla.png",
+      city: "Concepción",
+      email: "carla@ui.com"
     },
     {
       id: 2,
       name: "Almendra Castillo",
       imageURL: "client_pics/almendra.jpg",
+      city: "Concepción",
+      email: "client@ui.com"
     },
     {
       id: 3,
       name: "Daniela Rain",
+      city: "Concepción",
+      email: "carla@ui.com"
     },
   ],
   providers: [
@@ -31,6 +37,7 @@ const DUMMY_USERS = {
     {
       id: 2,
       name: "Pablo Valenzuela",
+      imageURL: "provider_pics/tomas.jpeg"
     },
     {
       id: 3,
@@ -64,22 +71,31 @@ const DUMMY_RESERVATIONS = [
   {
     id: 1,
     title: "Manicure 1",
-    provider: "Marcos Villarroel",
+    provider: {
+      id: 1,
+      name: "Marcos Villarroel",
+      imageURL: "provider_pics/marcos.jpeg",
+    },
     price: 5000,
     start: "2022-07-06T14:00:00",
     end: "2022-07-06T15:00:00",
     status: "canceled",
-    client: {
-      name: "Almendra castillo",
-      email: "client@example.com",
+    client:  {
+      id: 1,
+      name: "Carla Merino",
+      imageURL: "client_pics/carla.png",
       city: "Concepción",
-      imageURL: "almendra.jpg",
+      email: "carla@ui.com"
     },
   },
   {
     id: 2,
     title: "Pedicure 2",
-    provider: "Marcos Villarroel",
+    provider:  {
+      id: 2,
+      name: "Pablo Valenzuela",
+      imageURL: "provider_pics/tomas.jpeg"
+    },
     price: 7000,
     start: "2022-07-10T14:00:00",
     end: "2022-07-10T15:00:00",
@@ -88,28 +104,37 @@ const DUMMY_RESERVATIONS = [
       name: "Almendra castillo",
       email: "client@example.com",
       city: "Concepción",
-      imageURL: "almendra.jpg",
+      imageURL: "client_pics/almendra.jpg",
     },
   },
   {
     id: 3,
     title: "Botox Capilar 3",
-    provider: "Marcos Villarroel",
+    provider: {
+      id: 1,
+      name: "Marcos Villarroel",
+      imageURL: "provider_pics/marcos.jpeg",
+    },
     price: 17000,
     start: "2022-07-12T14:00:00",
     end: "2022-07-12T15:00:00",
     status: "completed",
-    client: {
-      name: "Almendra castillo",
-      email: "client@example.com",
+    client:  {
+      id: 1,
+      name: "Carla Merino",
+      imageURL: "client_pics/carla.png",
       city: "Concepción",
-      imageURL: "almendra.jpg",
+      email: "carla@ui.com"
     },
   },
   {
     id: 4,
     title: "Botox Capilar 4",
-    provider: "Marcos Villarroel",
+    provider:  {
+      id: 2,
+      name: "Pablo Valenzuela",
+      imageURL: "provider_pics/tomas.jpeg"
+    },
     price: 17000,
     start: "2022-07-13T14:00:00",
     end: "2022-07-13T15:00:00",
@@ -118,7 +143,7 @@ const DUMMY_RESERVATIONS = [
       name: "Almendra castillo",
       email: "client@example.com",
       city: "Concepción",
-      imageURL: "almendra.jpg",
+      imageURL: "client_pics/almendra.jpg",
     },
   },
 ];
@@ -131,7 +156,7 @@ const StaffCalendar = (props) => {
     const [data, setData] = useState({});
     const [date_str, setDate] = useState("");
     const addReservationHandler = (reservation_date) => {
-        console.log(reservation_date);
+     
         setDate(reservation_date.date);
         setmodal(true);
     };

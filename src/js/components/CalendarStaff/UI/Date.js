@@ -4,7 +4,7 @@ const Date = (props) => {
   function padTo2Digits(num) {
     return String(num).padStart(2, "0");
   }
-  console.log(props.date);
+
   const month = props.date.toLocaleString("es-CL", { month: "long" });
   const day = props.date.toLocaleString("es-CL", { day: "2-digit" });
   const year = props.date.getFullYear();

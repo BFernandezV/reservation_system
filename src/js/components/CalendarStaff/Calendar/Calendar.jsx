@@ -6,12 +6,12 @@ import ReactTooltip from "react-tooltip";
 
 const Calendar = (props) => {
   const handleDateClick = (arg) => {
-    console.log(arg);
+
     props.onAddReservation({ date: arg.dateStr });
   };
   const handleEventClick = (arg) => {
-    console.log("holaaaaaaaaaaaa")
-    console.log(arg);
+
+  
     props.onWatchEventDetail({
       start: arg.event.start,
       end: arg.event.end,

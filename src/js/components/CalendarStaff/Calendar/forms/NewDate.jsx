@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DateTimePicker from "react-datetime-picker";
 
 const NewDate = (props) => {
-  console.log(props.date_start, props.date_end);
+
   const getDate = function (date) {
     return date.split("T")[0];
   };
@@ -17,7 +17,7 @@ const NewDate = (props) => {
       let hour = date.split("T")[1];
       if (!hour) answer = date + "T" + value + ":00";
       else {
-        console.log(date);
+     
         answer = date.split("T")[0] + "T" + value + ":00";
       }
     }
