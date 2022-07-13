@@ -258,7 +258,7 @@ const ModifyPage = () => {
             </span>
             <span/>
             <div className="flex flex-col gap-2 overflow-auto h-full py-2 pr-2">
-              {value === "Wed Jul 13 2022 00:00:00 GMT-0400 (hora estándar de Chile)" ?
+              {value == "Wed Jul 13 2022 00:00:00 GMT-0400 (hora estándar de Chile)" ?
                 dataProfesionales1.length > 0
                   ? dataProfesionales1.map((element) => (
                       <TabletComponent
@@ -288,7 +288,7 @@ const ModifyPage = () => {
   };
 
   const Step2 = (handleChange) => {
-    if (currentStep === 2) return (
+    if (currentStep == 2) return (
     <div className="h-80">
       <Input
         id="inputName"
