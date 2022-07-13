@@ -4,7 +4,7 @@ import Stats from "./Stats";
 import NextEvents from "./NextEvents";
 const RightToolbar = (props) => {
   return (
-    <div className="flex flex-col justify-end">
+    <div className="flex flex-col justify-start mt-[6rem]">
       <NextEvents
         onWatchEventDetail={props.onWatchEventDetail}
         reservations={props.reservations}

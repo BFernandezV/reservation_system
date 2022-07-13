@@ -29,7 +29,12 @@ const Calendar = (props) => {
       plugins={[dayGridPlugin, interactionPlugin]}
       contentHeight={"auto"}
       eventContent={renderEventContent}
-      dateClick={handleDateClick}
+      headerToolbar = {
+        {left:"prev,next",
+        center: "title",
+        right: "dayGridDay,dayGridWeek,dayGridMonth"
+        }}
+        dateClick={handleDateClick}
       eventClick={handleEventClick}
       // eventDisplay={}
     />

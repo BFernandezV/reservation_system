@@ -180,8 +180,8 @@ const StaffCalendar = (props) => {
     };
 
     return <React.Fragment>
-        <div className="grid max-h-screen grid-rows-[5fr_1fr] grid-cols-[4fr_1fr]">
-            <div>
+        <div className="grid grid-cols-[4fr_1fr]  content-start">
+            <div className="max-h-full">
                 {modal && (
                     <NuevaReservaModal
                         title="Nueva reserva"
