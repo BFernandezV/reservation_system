@@ -1,157 +1,206 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import AccordionComponent from "../../js/components/ReservationComponents/AccordionComponent";
 import StepComponent from "../../js/components/ReservationComponents/StepComponent";
-import TabletComponent from "../../js/components/ReservationComponents/TabletComponent";
+import TabletComponent from "../../js/components/ModifyComponents/TabletComponent";
 import Calendar from "react-calendar";
+import ModalEstaSeguro from "../components/ModifyComponents/ModalEstaSeguro";
 import "../../css/calendar.css";
 import { Button } from "@material-tailwind/react";
+import { Input } from "@material-tailwind/react";
 
 const ModifyPage = () => {
-  const titles = [
+  const dataProfesionales1 = [
     {
-      title: "Selecciona el local y los servicios",
-      subtitle: "Los servicios tienen un tiempo estimado de duración",
+      id_grupo: 0,
+      profs:[
+      {
+        id: "0",
+        nombre: "Matias Gonzales",
+        servicios: "Todos los servicios"
+      },
+      {
+        id: "1",
+        nombre: "Kylie Andrade",
+        servicios: "Todos los servicios"
+      }
+      ],
+      hora: "9:00"
     },
     {
-      title: "Selecciona el profesional, la fecha y hora de tus servicios",
-      subtitle:
-        "Recuerda que la hora y fecha de los servicios está estrictamente relaciondo con el profesional",
+      id_grupo: 1,
+      profs:[
+      ],
+      hora: "10:00"
     },
     {
-      title: "Rellena el formulario",
-      subtitle: "Necesitamos la información necesaria para agendar tu cita",
+      id_grupo: 3,
+      profs:[
+      {
+        id: "2",
+        nombre: "Matias Gonzales",
+        servicios: "Todos los servicios"
+      },
+      {
+        id: "3",
+        nombre: "Leo Guzman",
+        servicios: "Peluquería"
+      }
+      ],
+      hora: "11:00"
+    },
+    {
+      id_grupo: 4,
+      profs:[
+      ],
+      hora: "12:00"
+    },
+    {
+      id_grupo: 5,
+      profs:[
+      ],
+      hora: "13:00"
+    },
+    {
+      id_grupo: 6,
+      profs:[
+      {
+        id: "4",
+        nombre: "Leo Guzman",
+        servicios: "Peluquería"
+      },
+      {
+        id: "5",
+        nombre: "Anaís Contreras",
+        servicios: "Manicure, Pedicure y Limpieza Facial"
+      },
+      {
+        id: "6",
+        nombre: "Verónica Bello",
+        servicios: "Manicure y Pedicure"
+      },
+      ],
+      hora: "14:00"
+    },
+    {
+      id_grupo: 7,
+      profs:[
+      {
+        id: "7",
+        nombre: "Leo Guzman",
+        servicios: "Peluquería"
+      },
+      {
+        id: "8",
+        nombre: "Anaís Contreras",
+        servicios: "Manicure, Pedicure y Limpieza Facial"
+      },
+      ],
+      hora: "15:00"
+    },
+    {
+      id_grupo: 8,
+      profs:[
+
+      ],
+      hora: "16:00"
     },
   ];
+  const dataProfesionales2 = [
+    {
+      id_grupo: 0,
+      profs:[
 
-  const dataLocales = [
-    {
-      title: "Los Quillayes 1087 - Coronel",
-      subtitle: "Horario de atención: 9:00 - 18:00",
+      ],
+      hora: "9:00"
     },
     {
-      title: "Los Nogales 2343- Coronel",
-      subtitle: "Horario de atención: 9:00 - 18:00",
+      id_grupo: 1,
+      profs:[
+        {
+          id: "0",
+          nombre: "Matias Gonzales",
+          servicios: "Todos los servicios"
+        },
+        {
+          id: "1",
+          nombre: "Leo Guzman",
+          servicios: "Peluquería"
+        }
+      ],
+      hora: "10:00"
     },
     {
-      title: "Los calle extra 234- Concepcion",
-      subtitle: "Horario de atención: 9:00 - 18:00",
+      id_grupo: 3,
+      profs:[
+      {
+        id: "2",
+        nombre: "Matias Gonzales",
+        servicios: "Todos los servicios"
+      },
+      {
+        id: "3",
+        nombre: "Leo Guzman",
+        servicios: "Peluquería"
+      }
+      ],
+      hora: "11:00"
     },
     {
-      title: "Los calle extra 2132 - Lota",
-      subtitle: "Horario de atención: 9:00 - 18:00",
+      id_grupo: 4,
+      profs:[
+      ],
+      hora: "12:00"
     },
     {
-      title: "Los calle extra 21332 - Lota",
-      subtitle: "Horario de atención: 9:00 - 18:00",
+      id_grupo: 5,
+      profs:[
+        {
+          id: "4",
+          nombre: "Leo Guzman",
+          servicios: "Peluquería"
+        },
+        {
+          id: "5",
+          nombre: "Anaís Contreras",
+          servicios: "Manicure, Pedicure y Limpieza Facial"
+        },
+      ],
+      hora: "13:00"
     },
     {
-      title: "Los calle extra 21132 - Lota",
-      subtitle: "Horario de atención: 9:00 - 18:00",
+      id_grupo: 6,
+      profs:[
+      {
+        id: "6",
+        nombre: "Leo Guzman",
+        servicios: "Peluquería"
+      },
+      {
+        id: "7",
+        nombre: "Anaís Contreras",
+        servicios: "Manicure, Pedicure y Limpieza Facial"
+      },
+      {
+        id: "8",
+        nombre: "Verónica Bello",
+        servicios: "Manicure y Pedicure"
+      },
+      ],
+      hora: "14:00"
     },
-  ];
+    {
+      id_grupo: 7,
+      profs:[
 
-  const dataServices = [
-    {
-      id: 1,
-      name: "Botox capilar cabello corto y medio",
-      duration: "90 min",
-      description:
-        "Se lava el cabello con shampoo anti residuo, luego se aplica el producto dejando actuar por 30 minutos, se termina de secar y se plancha, luego se lava y se seca con secador",
-      price: "20.000",
+      ],
+      hora: "15:00"
     },
     {
-      id: 2,
-      name: "Botox capilar cabello largo",
-      duration: "90 min",
-      description:
-        "Se lava el cabello con shampoo anti residuo, luego se aplica el producto dejando actuar por 30 minutos, se termina de secar y se plancha, luego se lava y se seca con secador",
-      price: "25.000",
-    },
-    {
-      id: 3,
-      name: "Lifting de pestañas con tinte",
-      duration: "60 min",
-      description:
-        "Se pega pestañas en bigudíes, aplicación de liquido 1 por 15 minutos, aplicación liquido 2 por 15 minutos, aplicación tinte retiro de bigudíes.",
-      price: "15.000",
-    },
-    {
-      id: 4,
-      name: "Limpieza Facial básica",
-      duration: "60 min",
-      description:
-        "Aplicación de leche de limpieza, exfoliación, tonificación, mascarilla, serum, para finalizar crema sellante según tipo de piel.",
-      price: "20.000",
-    },
-  ];
+      id_grupo: 8,
+      profs:[
 
-  const dataProf = [
-    {
-      title: "Benjamin Fernandez Vera",
-      subtitle: "Profesional con 15 años de experiencia",
-    },
-    {
-      title: "Fernando Fuentealba Arias",
-      subtitle: "Profesional con 15 años de experiencia",
-    },
-    {
-      title: "Claudio Rain Levican",
-      subtitle: "Profesional con 15 años de experiencia",
-    },
-    {
-      title: "Mauricio Furniel Campos",
-      subtitle: "Profesional con 15 años de experiencia",
-    },
-    {
-      title: "Jorge Jara",
-      subtitle: "Profesional con 15 años de experiencia",
-    },
-    {
-      title: "Tiago Huber",
-      subtitle: "Profesional con 15 años de experiencia",
-    },
-  ];
-
-  const workHours = [
-    {
-      hour: "9:00",
-      type: "Mañana",
-    },
-    {
-      hour: "10:00",
-      type: "Mañana",
-    },
-    {
-      hour: "11:00",
-      type: "Mañana",
-    },
-    {
-      hour: "12:00",
-      type: "Tarde",
-    },
-    {
-      hour: "13:00",
-      type: "Tarde",
-    },
-    {
-      hour: "14:00",
-      type: "Tarde",
-    },
-    {
-      hour: "15:00",
-      type: "Tarde",
-    },
-    {
-      hour: "16:00",
-      type: "Tarde",
-    },
-    {
-      hour: "17:00",
-      type: "Tarde",
-    },
-    {
-      hour: "18:00",
-      type: "Tarde",
+      ],
+      hora: "16:00"
     },
   ];
 
@@ -178,6 +227,7 @@ const ModifyPage = () => {
   };
 
   const Step1 = () => {
+    const [local, setLocal] = useState("");
     if (currentStep === 1)
       return (
         <div className="h-80 flex gap-10 w-full justify-center">
@@ -189,7 +239,7 @@ const ModifyPage = () => {
             <span/>
             <span/>
             <span/>
-            <div>
+            <div align="center">
               <Calendar
                 className={"bg-primary"}
                 onChange={onChange}
@@ -203,15 +253,28 @@ const ModifyPage = () => {
             </span>
             <span/>
             <div className="flex flex-col gap-2 overflow-auto h-full py-2 pr-2">
-              {dataServices.length > 0
-                ? dataServices.map((element) => (
-                    <AccordionComponent
-                      elementAccordion={element}
-                      key={element.id}
-                    />
-                  ))
-                : ""}
-              {/* <AccordionComponent /> */}
+              {value == "Wed Jul 13 2022 00:00:00 GMT-0400 (hora estándar de Chile)" ?
+                dataProfesionales1.length > 0
+                  ? dataProfesionales1.map((element) => (
+                      <TabletComponent
+                        elementValue={local}
+                        handlerElement={setLocal}
+                        elementTablet={element}
+                        key={element.id_grupo}
+                      />
+                    ))
+                  : ""
+                : dataProfesionales2.length > 0
+                  ? dataProfesionales2.map((element) => (
+                      <TabletComponent
+                        elementValue={local}
+                        handlerElement={setLocal}
+                        elementTablet={element}
+                        key={element.id_grupo}
+                      />
+                    ))
+                  : ""
+              }
             </div>
           </div>
         </div>
@@ -219,9 +282,21 @@ const ModifyPage = () => {
     return "";
   };
 
-  const Step2 = () => {
-    if (currentStep === 2) return <div className="h-80">Segunda vista</div>;
-    return "";
+  const Step2 = (handleChange) => {
+    if (currentStep === 2) return (
+    <div className="h-80">
+      <Input
+        id="inputName"
+        variant="outlined"
+        label="Escriba un comentario (Opcional)"
+        name="name"
+        onChange={(e) => handleChange(e.target)}
+      />
+    </div>
+    )
+    return (
+      <ModalEstaSeguro/>
+    );
   };
 
   return (
@@ -269,12 +344,16 @@ const ModifyPage = () => {
           >
             Atrás
           </button>
-          <button
-            className="bg-primary hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-            onClick={nextStep}
-          >
-            {currentStep < 2 ? "Siguiente" : "Enviar solicitud de modificación"}
-          </button>
+          {currentStep < 2 ?
+            <button
+              className="bg-primary hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+              onClick={nextStep}
+            >
+              Siguiente
+            </button>
+            :
+            "<ModalEstaSeguro/>"
+          }
         </div>
       </div>
     </div>
