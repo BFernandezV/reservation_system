@@ -1,9 +1,7 @@
 import React from "react";
 
 const UserMiniImage = (props) => {
-  console.log(props);
   if (props.imageURL) {
-    console.log("si las tenemos");
     return (
       <img
         src={props.imageURL}

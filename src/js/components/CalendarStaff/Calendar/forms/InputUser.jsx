@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Profile from "../../UI/Profile/Profile";
 const SelectUser = (props) => {
   const [selectedUser, setSelectedUser] = useState(props.users[0]);
-  console.log(props.users);
+  
   const handleProvider = (e) => {
     let user = props.users.find((user) => user.id == e.target.value);
     setSelectedUser(user);
