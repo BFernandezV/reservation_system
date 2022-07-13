@@ -15,30 +15,27 @@ export default function ModalEstaSeguro() {
   return (
     <Fragment>
       <Button
-        className="bg-primary hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" 
+        className="bg-primary hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
         onClick={handleOpen} 
         variant="gradient">
         Enviar solicitud de modificación
       </Button> 
       <Dialog open={open} handler={handleOpen}>
-        <DialogHeader>Its a simple dialog.</DialogHeader>
+        <DialogHeader>¿Esta seguro de enviar esta solicitud?</DialogHeader>
         <DialogBody divider>
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus ad
-          reprehenderit omnis perspiciatis aut odit! Unde architecto
-          perspiciatis, dolorum dolorem iure quia saepe autem accusamus eum
-          praesentium magni corrupti explicabo!
+          Al realizar esta modificación perderá su hora de reserva y la solicitud quedará a espera de ser revisada
         </DialogBody>
         <DialogFooter>
           <Button
             variant="text"
-            color="red"
+            color="white"
             onClick={handleOpen}
             className="mr-1"
           >
-            <span>Cancel</span>
+            <span>Cancelar</span>
           </Button>
-          <Button variant="gradient" color="green" onClick={handleOpen}>
-            <span>Confirm</span>
+          <Button variant="gradient" color="#006fff" onClick={handleOpen}>
+            <span>Aceptar</span>
           </Button>
         </DialogFooter>
       </Dialog>
