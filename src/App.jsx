@@ -13,14 +13,14 @@ function App() {
         element={
           <div className="bg- h-screen w-screen absolute top-0 left-0">
             <h1 className="mt-4 text-indigo-700 text-5xl font-bold text-center">
-              Hola mundo!
+              Home
             </h1>
           </div>
         }
       />
       <Route path="/reservation/" element={<ReservationPage />} />
       <Route path="/staffcalendar/" element={<StaffCalendar />} />
-      <Route path="/modify/" element={<ModifyPage/>} />
+      <Route path="/modify/" element={<ModifyPage />} />
     </Routes>
   );
 }
