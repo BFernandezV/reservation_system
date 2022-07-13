@@ -3,6 +3,7 @@ import "./App.css";
 import { Route, Routes } from "react-router-dom";
 import ReservationPage from "../src/js/pages/ReservationPage";
 import StaffCalendar from "./js/pages/StaffCalendar";
+import ModifyPage from "./js/pages/ModifyPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       />
       <Route path="/reservation/" element={<ReservationPage />} />
       <Route path="/staffcalendar/" element={<StaffCalendar />} />
+      <Route path="/modify/" element={<ModifyPage/>} />
     </Routes>
   );
 }
