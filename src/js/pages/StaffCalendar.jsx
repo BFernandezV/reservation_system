@@ -124,68 +124,70 @@ const DUMMY_RESERVATIONS = [
 ];
 
 const StaffCalendar = (props) => {
+  const [reservations, addReservation] = useState(DUMMY_RESERVATIONS);
+  const [modal, setmodal] = useState(false);
+  const [event_detail, setEventDetail] = useState(false);
+  const [data, setData] = useState({});
+  const [date_str, setDate] = useState("");
+  const addReservationHandler = (reservation_date) => {
+    console.log(reservation_date);
+    setDate(reservation_date.date);
+    setmodal(true);
+  };
+  const watchEventHandler = (data) => {
+    setData(data);
+    setEventDetail(true);
+  };
+  const eventHandler = () => {
+    setEventDetail(null);
+  };
 
-    const [reservations, addReservation] = useState(DUMMY_RESERVATIONS);
-    const [modal, setmodal] = useState(false);
-    const [event_detail, setEventDetail] = useState(false);
-    const [data, setData] = useState({});
-    const [date_str, setDate] = useState("");
-    const addReservationHandler = (reservation_date) => {
-        console.log(reservation_date);
-        setDate(reservation_date.date);
-        setmodal(true);
-    };
-    const watchEventHandler = (data) => {
-        setData(data);
-        setEventDetail(true);
-    };
-    const eventHandler = () => {
-        setEventDetail(null);
-    };
+  // Añadir al arreglo
+  const modalHandler = (recivedData) => {
+    addReservation((reservations) => {
+      return [recivedData, ...reservations];
+    });
+    setmodal(null);
+  };
+  const exitHandler = () => {
+    setmodal(null);
+  };
 
-    // Añadir al arreglo
-    const modalHandler = (recivedData) => {
-        addReservation((reservations) => {
-        return [recivedData, ...reservations];
-        });
-        setmodal(null);
-    };
-    const exitHandler = () => {
-        setmodal(null);
-    };
-
-    return <React.Fragment>
-        <div className="grid max-h-screen grid-rows-[5fr_1fr] grid-cols-[4fr_1fr]">
-            <div>
-                {modal && (
-                    <NuevaReservaModal
-                        title="Nueva reserva"
-                        services={DUMMY_SERVICES}
-                        users={DUMMY_USERS}
-                        date={date_str}
-                        message="hola mundo vamos a hacer una nueva reserva"
-                        onConfirm={modalHandler}
-                        onExit={exitHandler}
-                    ></NuevaReservaModal>
-                )}
-                {event_detail && (
-                    <EventDetails
-                        eventdata={data}
-                        onConfirm={eventHandler}
-                    ></EventDetails>
-                )}
-                <Calendar
-                    reservations={reservations}
-                    onAddReservation={addReservationHandler}
-                    onWatchEventDetail={watchEventHandler}
-                ></Calendar>
-            </div>
-            
-            <RightToolbar
-                onWatchEventDetail={watchEventHandler}
-                reservations={reservations}
-            ></RightToolbar>
+  return (
+    <React.Fragment>
+      <div className="grid max-h-screen grid-rows-[5fr_1fr] grid-cols-[4fr_1fr]">
+        <div className="bg-gray-500">holassssclaudioo</div>
+        <div>
+          {modal && (
+            <NuevaReservaModal
+              title="Nueva reserva"
+              services={DUMMY_SERVICES}
+              users={DUMMY_USERS}
+              date={date_str}
+              message="hola mundo vamos a hacer una nueva reserva"
+              onConfirm={modalHandler}
+              onExit={exitHandler}
+            ></NuevaReservaModal>
+          )}
+          {event_detail && (
+            <EventDetails
+              eventdata={data}
+              onConfirm={eventHandler}
+            ></EventDetails>
+          )}
+          <Calendar
+            reservations={reservations}
+            onAddReservation={addReservationHandler}
+            onWatchEventDetail={watchEventHandler}
+          ></Calendar>
         </div>
+
+        <RightToolbar
+          onWatchEventDetail={watchEventHandler}
+          reservations={reservations}
+        ></RightToolbar>
+      </div>
     </React.Fragment>
-}
+  );
+};
 export default StaffCalendar;

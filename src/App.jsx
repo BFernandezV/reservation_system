@@ -10,7 +10,7 @@ function App() {
       <Route
         path="/"
         element={
-          <div className="bg-gray-200 h-screen w-screen absolute top-0 left-0 dark:bg-gray-900">
+          <div className="bg- h-screen w-screen absolute top-0 left-0">
             <h1 className="mt-4 text-indigo-700 text-5xl font-bold text-center">
               Hola mundo!
             </h1>
@@ -18,8 +18,8 @@ function App() {
         }
       />
       <Route path="/reservation/" element={<ReservationPage />} />
-      <Route path="/staffcalendar/" element = {<StaffCalendar/>} />
-    </Routes> 
+      <Route path="/staffcalendar/" element={<StaffCalendar />} />
+    </Routes>
   );
 }
 
