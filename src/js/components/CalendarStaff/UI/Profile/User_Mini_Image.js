@@ -1,7 +1,9 @@
 import React from "react";
 
 const UserMiniImage = (props) => {
-  if (props.imageURL)
+  console.log(props);
+  if (props.imageURL) {
+    console.log("si las tenemos");
     return (
       <img
         src={props.imageURL}
@@ -9,6 +11,7 @@ const UserMiniImage = (props) => {
         className="rounded-full w-[40px] h-[40px]"
       ></img>
     );
+  }
   // By defaul return Anonymous image
   return (
     <React.Fragment>

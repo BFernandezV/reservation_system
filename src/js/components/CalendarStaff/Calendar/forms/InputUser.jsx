@@ -18,7 +18,7 @@ const SelectUser = (props) => {
         ></Profile>
         <select
           onChange={handleProvider}
-          className="border col-span-2 border-slate-2 p-2"
+          className="border rounded border-slate_400 col-span-2 border-slate-2 p-1"
         >
           {props.users.map((user) => {
             return (

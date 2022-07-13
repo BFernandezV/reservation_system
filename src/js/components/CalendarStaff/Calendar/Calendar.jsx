@@ -7,9 +7,10 @@ import ReactTooltip from "react-tooltip";
 const Calendar = (props) => {
   const handleDateClick = (arg) => {
     console.log(arg);
-    props.onAddReservation({ date: arg.dateStr + "T00:00" });
+    props.onAddReservation({ date: arg.dateStr });
   };
   const handleEventClick = (arg) => {
+    console.log("holaaaaaaaaaaaa")
     console.log(arg);
     props.onWatchEventDetail({
       start: arg.event.start,
@@ -39,7 +40,7 @@ function renderEventContent(eventInfo) {
   let hour = eventInfo.event.startStr.split("T", 5)[1].substring(0, 5);
   let status = eventInfo.event._def.extendedProps.status;
 
-  let bg_color = "rounded-full p-1 bg-gray-500 mr-1";
+  let bg_color = "rounded-full p-1 bg-gray_500 mr-1";
   if (status === "canceled") bg_color = " rounded-full p-1 bg-red-500 mr-1";
   if (status === "completed") bg_color = "rounded-full p-1 bg-green-500 mr-1";
   return (

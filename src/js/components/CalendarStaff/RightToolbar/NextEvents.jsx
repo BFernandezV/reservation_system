@@ -33,7 +33,7 @@ const NextEvents = (props) => {
     let hour = eventInfo.start.split("T", 5)[1].substring(0, 5);
     let status = eventInfo.status;
     console.log(status);
-    let bg_color = "rounded-full h-[8px] w-[8px] bg-gray-500 mr-1";
+    let bg_color = "rounded-full h-[8px] w-[8px] bg-gray_500 mr-1";
     if (status === "canceled")
       bg_color = " rounded-full h-[8px] w-[8px] bg-red-500 mr-1";
     if (status === "completed")
@@ -43,7 +43,7 @@ const NextEvents = (props) => {
         onClick={() => {
           clickEvent(eventInfo);
         }}
-        className="flex gap-2 hover:bg-gray-200 items-center cursor-pointer"
+        className="flex gap-2 hover:bg-gray_200 items-center cursor-pointer"
       >
         <div className={bg_color}></div>
         {hour !== "00:00" ? <b>{hour}</b> : ""}

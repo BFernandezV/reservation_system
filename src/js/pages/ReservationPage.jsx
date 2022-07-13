@@ -285,7 +285,7 @@ const ReservationPage = () => {
   };
 
   return (
-    <div className="grid place-items-center bg-background h-screen">
+    <div className="grid place-items-center  bg-background h-screen">
       <div
         className="bg-white p-5 rounded-md flex flex-col gap-5 max-w-lg md:max-w-6xl m-6 shadow-xl"
         style={{

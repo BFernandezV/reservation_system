@@ -38,7 +38,7 @@ const NewDate = (props) => {
       <div className="flex gap-3">
         <input
           type="date"
-          className="border"
+          className="border p-1 rounded border-slate_400"
           value={getDate(props.date_start)}
           onChange={(event) => {
             handleChange(props.date_start, event, "date");
@@ -47,7 +47,7 @@ const NewDate = (props) => {
         <input
           id="appt-time-start"
           type="time"
-          className="border"
+          className="border p-1 rounded border-slate_400"
           onChange={(event) => {
             handleChange(props.date_start, event, "time", "start");
           }}
@@ -56,7 +56,7 @@ const NewDate = (props) => {
         ></input>
         -
         <input
-          className="border"
+          className="border p-1 rounded border-slate_400"
           id="appt-time-end"
           type="time"
           onChange={(event) => {
