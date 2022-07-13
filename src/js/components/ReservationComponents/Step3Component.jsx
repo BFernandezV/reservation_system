@@ -1,5 +1,5 @@
 import React from "react";
-// import user from "../../../../public/images/user.png";
+import user from "../../../images/user.png";
 import { Input } from "@material-tailwind/react";
 
 const Step3Component = ({
@@ -126,7 +126,7 @@ const Step3Component = ({
       </div>
 
       <div className="flex basis-2/4 gap-3 h-52 items-center border border-border_secondary justify-center p-3">
-        {/* <img className="object-none" src={user}></img> */}
+        <img className="object-none" src={user}></img>
         <div className="flex flex-col gap-2">
           <span className="font-semibold text-text_color">{professional}</span>
           <span className="text-text_secondary">
