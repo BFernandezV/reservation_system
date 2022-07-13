@@ -149,6 +149,23 @@ const DUMMY_RESERVATIONS = [
 ];
 
 const StaffCalendar = (props) => {
+  const [reservations, addReservation] = useState(DUMMY_RESERVATIONS);
+  const [modal, setmodal] = useState(false);
+  const [event_detail, setEventDetail] = useState(false);
+  const [data, setData] = useState({});
+  const [date_str, setDate] = useState("");
+  const addReservationHandler = (reservation_date) => {
+    console.log(reservation_date);
+    setDate(reservation_date.date);
+    setmodal(true);
+  };
+  const watchEventHandler = (data) => {
+    setData(data);
+    setEventDetail(true);
+  };
+  const eventHandler = () => {
+    setEventDetail(null);
+  };
 
     const [reservations, addReservation] = useState(DUMMY_RESERVATIONS);
     const [modal, setmodal] = useState(false);
@@ -211,6 +228,13 @@ const StaffCalendar = (props) => {
                 reservations={reservations}
             ></RightToolbar>
         </div>
+
+        <RightToolbar
+          onWatchEventDetail={watchEventHandler}
+          reservations={reservations}
+        ></RightToolbar>
+      </div>
     </React.Fragment>
-}
+  );
+};
 export default StaffCalendar;

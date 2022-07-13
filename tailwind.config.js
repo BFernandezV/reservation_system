@@ -27,6 +27,7 @@ module.exports = withMT({
       primary: "#006FFF",
       border_secondary: "#D7D7D7",
       select: "#01375e",
+      danger: "#e5365d",
       slate_400: "#94a3b8",
       gray_500: "#6b7280",
       gray_400: "#9ca3af",
