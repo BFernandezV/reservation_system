@@ -33,7 +33,7 @@ const DetailOverlay = (props) => {
           <label>Proveedor: </label>
           <Profile
             imageURL={props.provider.imageURL}
-            alt={props.provider}
+            alt={props.provider.name}
             header={props.provider.name}
             description={"15 años de experiencia"}
           ></Profile>
@@ -53,7 +53,6 @@ const DetailOverlay = (props) => {
 };
 
 const EventDetails = (props) => {
- 
   return (
     <React.Fragment>
       {ReactDOM.createPortal(

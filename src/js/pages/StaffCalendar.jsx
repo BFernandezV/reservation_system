@@ -138,7 +138,7 @@ const DUMMY_RESERVATIONS = [
     price: 17000,
     start: "2022-07-13T14:00:00",
     end: "2022-07-13T15:00:00",
-    status: "completed",
+    status: "pendiente",
     client: {
       name: "Almendra castillo",
       email: "client@example.com",
