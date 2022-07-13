@@ -6,12 +6,12 @@ import ReactTooltip from "react-tooltip";
 
 const Calendar = (props) => {
   const handleDateClick = (arg) => {
-    console.log(arg);
+
     props.onAddReservation({ date: arg.dateStr });
   };
   const handleEventClick = (arg) => {
-    console.log("holaaaaaaaaaaaa")
-    console.log(arg);
+
+  
     props.onWatchEventDetail({
       start: arg.event.start,
       end: arg.event.end,
@@ -29,7 +29,12 @@ const Calendar = (props) => {
       plugins={[dayGridPlugin, interactionPlugin]}
       contentHeight={"auto"}
       eventContent={renderEventContent}
-      dateClick={handleDateClick}
+      headerToolbar = {
+        {left:"prev,next",
+        center: "title",
+        right: "dayGridDay,dayGridWeek,dayGridMonth"
+        }}
+        dateClick={handleDateClick}
       eventClick={handleEventClick}
       // eventDisplay={}
     />

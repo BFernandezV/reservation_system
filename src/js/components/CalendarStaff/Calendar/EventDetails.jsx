@@ -32,15 +32,15 @@ const DetailOverlay = (props) => {
         <div className="grid gap-y-3 gap-x-2 grid-cols-[1.6fr_10fr]">
           <label>Proveedor: </label>
           <Profile
-            image="unnamed-273.jpeg"
+            imageURL={props.provider.imageURL}
             alt={props.provider}
-            header={props.provider}
+            header={props.provider.name}
             description={"15 años de experiencia"}
           ></Profile>
           <label>Cliente: </label>
           <Profile
-            image="customer.jpg"
-            alt={props.provider}
+            imageURL={props.client.imageURL}
+            alt={props.client.name}
             header={props.client.name}
             description={props.client.email + ", " + props.client.city}
           ></Profile>

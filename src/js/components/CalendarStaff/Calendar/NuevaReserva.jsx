@@ -11,16 +11,16 @@ import Profile from "../UI/Profile/Profile";
 import InputUser from "./forms/InputUser";
 import NewDate from "./forms/NewDate";
 const ModalOverlay = (props) => {
-  console.log(props.users);
+  
   const providerInputref = useRef();
   const [service, setValue] = useState("Corte de pelo");
 
-  const [provider, setProvider] = useState("provider");
+  const [provider, setProvider] = useState(props.users.providers[0]);
   const [providerIMG, setImageProvider] = useState(null);
 
-  const [client, setClient] = useState("client");
+  const [client, setClient] = useState(props.users.clients[0]);
   const [clientIMG, setClientIMG] = useState(null);
-  console.log(props.date)
+  
   const [date_start, setEnteredDate] = useState(props.date + "T17:00:00");
   const [date_end, setDateEnd] = useState(props.date + "T17:30:00");
   const handleDate = (date) => {
@@ -36,22 +36,22 @@ const ModalOverlay = (props) => {
     let provider = props.users.providers.find(
       (provider) => provider.id == idProv
     );
-    setProvider(provider.name);
+    setProvider(provider);
     setImageProvider(provider.imageURL);
-    console.log(provider);
+
   };
   const handleClient = (idClient) => {
     let client = props.users.clients.find((client) => client.id == idClient);
-    setClient(client.name);
+    setClient(client);
     setClientIMG(client.imageURL);
-    console.log(client);
+
   };
 
   const submitHandler = (event) => {
     // Aquí subimos la información que se genera al crear un nuevo evento
     event.preventDefault();
-    console.log("por que vergas me activo");
-    console.log(date_end,date_start)
+   
+    
     props.onConfirm({
       title: service,
       provider: provider,
@@ -59,11 +59,7 @@ const ModalOverlay = (props) => {
       start: date_start,
       end: date_end,
       status: "pendiente",
-      client: {
-        name: client,
-        email: "client@example.com",
-        city: "Concepción",
-      },
+      client: client
     });
   };
 
