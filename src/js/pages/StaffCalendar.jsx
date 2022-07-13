@@ -10,12 +10,12 @@ const DUMMY_USERS = {
     {
       id: 1,
       name: "Carla Merino",
-      imageURL: "carla.png",
+      imageURL: "client_pics/carla.png",
     },
     {
       id: 2,
       name: "Almendra Castillo",
-      imageURL: "almendra.jpg",
+      imageURL: "client_pics/almendra.jpg",
     },
     {
       id: 3,
@@ -26,7 +26,7 @@ const DUMMY_USERS = {
     {
       id: 1,
       name: "Marcos Villarroel",
-      imageURL: "marcos.jpeg",
+      imageURL: "provider_pics/marcos.jpeg",
     },
     {
       id: 2,

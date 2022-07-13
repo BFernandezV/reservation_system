@@ -13,16 +13,16 @@ import NewDate from "./forms/NewDate";
 const ModalOverlay = (props) => {
   console.log(props.users);
   const providerInputref = useRef();
-  const [service, setValue] = useState("default");
+  const [service, setValue] = useState("Corte de pelo");
 
   const [provider, setProvider] = useState("provider");
   const [providerIMG, setImageProvider] = useState(null);
 
   const [client, setClient] = useState("client");
   const [clientIMG, setClientIMG] = useState(null);
-
-  const [date_start, setEnteredDate] = useState(props.date);
-  const [date_end, setDateEnd] = useState(props.date);
+  console.log(props.date)
+  const [date_start, setEnteredDate] = useState(props.date + "T17:00:00");
+  const [date_end, setDateEnd] = useState(props.date + "T17:30:00");
   const handleDate = (date) => {
     setEnteredDate(date);
   };
@@ -51,6 +51,7 @@ const ModalOverlay = (props) => {
     // Aquí subimos la información que se genera al crear un nuevo evento
     event.preventDefault();
     console.log("por que vergas me activo");
+    console.log(date_end,date_start)
     props.onConfirm({
       title: service,
       provider: provider,
@@ -68,9 +69,10 @@ const ModalOverlay = (props) => {
 
   return (
     <Card className={`${classes.modal}`}>
-      <header className="bg-gray-500 p-4">
-        <h2 className="text-gray-800 font-semibold text-lg">{props.title}</h2>
+      <header className="bg-primary p-4">
+        <h2 className="text-white font-semibold text-lg">{props.title}</h2>
       </header>
+     
       <form
         className="grid p-2 gap-y-5 gap-x-2 grid-cols-[1.6fr_10fr] items-center"
         onSubmit={submitHandler}
@@ -79,11 +81,11 @@ const ModalOverlay = (props) => {
         <select
           id="service"
           name="service"
-          defaultValue={service}
+        
           onChange={handleChange}
-          className="border col-span-2 border-slate-2 p-2"
+          className="border col-span-2 border-slate_400 p-2 rounded"
         >
-          <option value="Corte de pelo">Corte de pelo</option>
+          <option value="Corte de pelo" selected>Corte de pelo</option>
           <option value="Manicure">Manicure</option>
           <option value="Pedicure">Pedicure</option>
           <option value="Botox Capilar">Botox Capilar</option>

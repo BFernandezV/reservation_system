@@ -8,7 +8,7 @@ import Profile from "../UI/Profile/Profile";
 import Date from "../UI/Date";
 
 const DetailOverlay = (props) => {
-  let bg_status = "p-4 bg-gray-400";
+  let bg_status = "p-4 bg-gray_400";
   if (props.status == "completed") bg_status = "p-4 bg-green-500";
   if (props.status == "canceled") bg_status = "p-4 bg-red-500";
   return (
@@ -53,7 +53,7 @@ const DetailOverlay = (props) => {
 };
 
 const EventDetails = (props) => {
-  console.log(props.informacion);
+ 
   return (
     <React.Fragment>
       {ReactDOM.createPortal(
